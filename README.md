@@ -11,4 +11,4 @@ Symlink the .zshrc file to your home directory
 `ln -s /path/to/zshrc/.zshrc ~/`
 
 ## Install ohmyzsh
-`curl -L http://install.ohmyz.sh | sh``
+`curl -L http://install.ohmyz.sh | sh`
