@@ -8,6 +8,7 @@ This is based off of ohmyzsh z shell framework.
 
 
 Symlink the .zshrc file to your home directory
+
 `ln -s /path/to/zshrc/.zshrc ~/`
 
 ## Install ohmyzsh
