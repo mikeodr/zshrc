@@ -87,9 +87,15 @@ export JLEVEL=4
 #ROS Stuff
 alias ccm='cd ~/catkin_ws && catkin_make; cd -'
 alias ccmd='cd ~/catkin_ws && catkin_make -DCMAKE_BUILD_TYPE=Debug; cd -'
-export ROS_WORKSPACE=/home/modriscoll/catkin_ws/
-source /opt/ros/hydro/setup.zsh
-source ~/catkin_ws/devel/setup.zsh
+
+if [[ -a /opt/ros/hydro/setup.zsh ]] then
+    source /opt/ros/hydro/setup.zsh
+fi
+if [[ -a ~/catkin_ws/devel/setup.zsh ]] then
+    source ~/catkin_ws/devel/setup.zsh
+    export ROS_WORKSPACE=/home/modriscoll/catkin_ws/
+fi
+
 export ROS_EMAIL=modriscoll@clearpathrobotics.com
 
 #Main aliases
