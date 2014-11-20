@@ -96,6 +96,10 @@ if [[ -a ~/catkin_ws/devel/setup.zsh ]] then
     export ROS_WORKSPACE=/home/modriscoll/catkin_ws/
 fi
 
+if [[ -a ~/.keychain/$(uname -n)-sh ]]; then
+    source ~/.keychain/$(uname -n)-sh
+fi
+
 export ROS_EMAIL=modriscoll@clearpathrobotics.com
 
 #Main aliases
