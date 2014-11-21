@@ -45,16 +45,15 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git github debian extract mosh)
+plugins=(git debian extract mosh)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 export apt_pref=apt-get
-export PATH="/home/modriscoll/catkin_ws/devel/bin:/opt/ros/hydro/bin:/home/modriscoll/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
+export PATH="/home/$(whomai)/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
 # export MANPATH="/usr/local/man:$MANPATH"
-
 
 # You may need to manually set your language environment
 export LANG=en_CA.UTF-8
@@ -90,10 +89,11 @@ alias ccmd='cd ~/catkin_ws && catkin_make -DCMAKE_BUILD_TYPE=Debug; cd -'
 
 if [[ -a /opt/ros/hydro/setup.zsh ]] then
     source /opt/ros/hydro/setup.zsh
-fi
-if [[ -a ~/catkin_ws/devel/setup.zsh ]] then
-    source ~/catkin_ws/devel/setup.zsh
-    export ROS_WORKSPACE=/home/modriscoll/catkin_ws/
+    if [[ -a ~/catkin_ws/devel/setup.zsh ]] then
+        source ~/catkin_ws/devel/setup.zsh
+        export ROS_WORKSPACE=/home/$(whoami)/catkin_ws/
+        export PATH=$PATH:/home/$(whomai)/catkin_ws/devel/bin:/opt/ros/hydro/bin
+    fi
 fi
 
 if [[ -a ~/.keychain/$(uname -n)-sh ]]; then
