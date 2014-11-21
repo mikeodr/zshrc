@@ -92,7 +92,7 @@ if [[ -a /opt/ros/hydro/setup.zsh ]] then
     if [[ -a ~/catkin_ws/devel/setup.zsh ]] then
         source ~/catkin_ws/devel/setup.zsh
         export ROS_WORKSPACE=/home/$(whoami)/catkin_ws/
-        export PATH=$PATH:/home/$(whomai)/catkin_ws/devel/bin:/opt/ros/hydro/bin
+        export PATH=$PATH:/home/$(whoami)/catkin_ws/devel/bin:/opt/ros/hydro/bin
     fi
 fi
 
