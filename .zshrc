@@ -84,8 +84,8 @@ export EDITOR=vim
 export JLEVEL=4
 
 #ROS Stuff
-alias ccm='cd ~/catkin_ws && catkin_make; cd -'
-alias ccmd='cd ~/catkin_ws && catkin_make -DCMAKE_BUILD_TYPE=Debug; cd -'
+alias ccm='roscd && catkin_make; cd -'
+alias ccmd='roscd && catkin_make -DCMAKE_BUILD_TYPE=Debug; cd -'
 
 if [[ -a /opt/ros/hydro/setup.zsh ]] then
     source /opt/ros/hydro/setup.zsh
