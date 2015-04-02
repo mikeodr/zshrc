@@ -81,7 +81,7 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 alias zshsource="source ~/.zshrc"
 
 export EDITOR=vim
-export JLEVEL=4
+export JLEVEL=10
 
 #ROS Stuff
 alias ccm='roscd && catkin_make; cd -'
@@ -89,18 +89,21 @@ alias ccmd='roscd && catkin_make -DCMAKE_BUILD_TYPE=Debug; cd -'
 
 if [[ -a /opt/ros/hydro/setup.zsh ]] then
     source /opt/ros/hydro/setup.zsh
-    if [[ -a ~/catkin_ws/devel/setup.zsh ]] then
-        source ~/catkin_ws/devel/setup.zsh
-        export ROS_WORKSPACE=/home/$(whoami)/catkin_ws/
-        export PATH=$PATH:/home/$(whoami)/catkin_ws/devel/bin:/opt/ros/hydro/bin
-    fi
 fi
 
 if [[ -a ~/.keychain/$(uname -n)-sh ]]; then
     source ~/.keychain/$(uname -n)-sh
 fi
 
+if [[ -a ~/.keychain/$(uname -n)-sh-gpg ]]; then
+    source ~/.keychain/$(uname -n)-sh-gpg
+fi
+
 export ROS_EMAIL=modriscoll@clearpathrobotics.com
+
+export CCACHE_PREFIX="distcc"
+export CC="ccache gcc" CXX="ccache g++"
+export DISTCC_HOSTS='localhost' # distcc1'
 
 #Main aliases
 alias rm='rm -i'
