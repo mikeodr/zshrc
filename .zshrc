@@ -83,12 +83,17 @@ alias zshsource="source ~/.zshrc"
 export EDITOR=vim
 export JLEVEL=10
 
+unsetopt NOMATCH
+
 #ROS Stuff
-alias ccm='roscd && catkin_make; cd -'
-alias ccmd='roscd && catkin_make -DCMAKE_BUILD_TYPE=Debug; cd -'
+#alias ccm='roscd && catkin_make; cd -'
+#alias ccmd='roscd && catkin_make -DCMAKE_BUILD_TYPE=Debug; cd -'
+
+alias ccm='catkin_make -DCMAKE_BUILD_TYPE=RelWithDebInfo && catkin_make roslint_nimbus_mrc -DCMAKE_BUILD_TYPE=RelWithDebInfo'
 
 if [[ -a /opt/ros/hydro/setup.zsh ]] then
     source /opt/ros/hydro/setup.zsh
+    #export ROSCONSOLE_FORMAT='[${severity}] [${time}] [${function}:${line}]: ${message}'
 fi
 
 if [[ -a ~/.keychain/$(uname -n)-sh ]]; then
@@ -123,3 +128,4 @@ alias clipboard='xclip -sel clip'
 
 #Fun stuff
 alias sl='sl -e' #Choo choo
+alias fuck='$(thefuck $(fc -ln -1))'
