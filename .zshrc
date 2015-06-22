@@ -91,8 +91,13 @@ unsetopt NOMATCH
 
 alias ccm='catkin_make -DCMAKE_BUILD_TYPE=RelWithDebInfo && catkin_make roslint_nimbus_mrc -DCMAKE_BUILD_TYPE=RelWithDebInfo'
 
-if [[ -a /opt/ros/hydro/setup.zsh ]] then
-    source /opt/ros/hydro/setup.zsh
+roslint_func() {
+  catkin build --no-deps $1 --make-args roslint_$1
+}
+alias roslint=roslint_func
+
+if [[ -a /opt/ros/indigo/setup.zsh ]] then
+    source /opt/ros/indigo/setup.zsh
     #export ROSCONSOLE_FORMAT='[${severity}] [${time}] [${function}:${line}]: ${message}'
 fi
 
