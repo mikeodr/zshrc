@@ -94,7 +94,7 @@ alias ccm='catkin_make -DCMAKE_BUILD_TYPE=RelWithDebInfo && catkin_make roslint_
 roslint_func() {
   catkin build --no-deps $1 --make-args roslint_$1
 }
-alias roslint=roslint_func
+alias roslint_run=roslint_func
 
 if [[ -a /opt/ros/indigo/setup.zsh ]] then
     source /opt/ros/indigo/setup.zsh
