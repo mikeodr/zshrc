@@ -52,6 +52,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export apt_pref=apt-get
+export apt_upg=upgrade
 export PATH="/home/$(whoami)/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -86,20 +87,19 @@ export JLEVEL=10
 unsetopt NOMATCH
 
 #ROS Stuff
-#alias ccm='roscd && catkin_make; cd -'
-#alias ccmd='roscd && catkin_make -DCMAKE_BUILD_TYPE=Debug; cd -'
-
-alias ccm='catkin_make -DCMAKE_BUILD_TYPE=RelWithDebInfo && catkin_make roslint_nimbus_mrc -DCMAKE_BUILD_TYPE=RelWithDebInfo'
-
 roslint_func() {
   catkin build --no-deps $1 --make-args roslint_$1
 }
 alias roslint_run=roslint_func
+alias cb="catkin build"
 
-if [[ -a /opt/ros/indigo/setup.zsh ]] then
+if [[ -a /opt/ros/indigo/setup.zsh ]]; then
     source /opt/ros/indigo/setup.zsh
-    #export ROSCONSOLE_FORMAT='[${severity}] [${time}] [${function}:${line}]: ${message}'
+    if [[ -a /etc/bash_completion.d/catkin_tools-completion.bash ]]; then
+        source /etc/bash_completion.d/catkin_tools-completion.bash
+    fi
 fi
+
 
 if [[ -a ~/.keychain/$(uname -n)-sh ]]; then
     source ~/.keychain/$(uname -n)-sh
