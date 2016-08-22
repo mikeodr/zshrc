@@ -45,7 +45,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git debian extract mosh vagrant)
+plugins=(autopep8 debian docker encode64 extract git mosh python sudo vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -55,6 +55,10 @@ export apt_pref=apt-get
 export apt_upgr=upgrade
 export PATH="/home/$(whoami)/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/$(whoami)/Applications/clion-1.1.1/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
+
+export DEBEMAIL=mike@mikeodriscoll.ca
+export UBUEMAIL=mike@mikeodriscoll.ca
+export DEBFULLNAME="Mike O'Driscoll"
 
 # You may need to manually set your language environment
 export LANG=en_CA.UTF-8
@@ -81,6 +85,8 @@ alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias zshsource="source ~/.zshrc"
 
+export WORKON_HOME=~/venvs
+
 export EDITOR=vim
 export JLEVEL=10
 
@@ -93,6 +99,7 @@ roslint_func() {
 }
 alias roslint_run=roslint_func
 alias cb="catkin build"
+alias cbi="catkin build -i"
 alias cbt="catkin build --this"
 
 if [[ -a /opt/ros/indigo/setup.zsh ]]; then
@@ -110,6 +117,8 @@ if [[ -a ~/.keychain/$(uname -n)-sh-gpg ]]; then
     source ~/.keychain/$(uname -n)-sh-gpg
 fi
 
+GPG_TTY=$(tty)
+export GPG_TTY
 export ROS_EMAIL=modriscoll@clearpathrobotics.com
 
 export CCACHE_PREFIX="distcc"
