@@ -45,7 +45,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(autopep8 debian docker encode64 extract git mosh python sudo vagrant)
+plugins=(debian docker extract git mosh sudo vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -53,11 +53,11 @@ source $ZSH/oh-my-zsh.sh
 
 export apt_pref=apt-get
 export apt_upgr=upgrade
-export PATH="/home/$(whoami)/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/$(whoami)/Applications/clion-1.1.1/bin"
+export PATH="/home/$(whoami)/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export DEBEMAIL=mike@mikeodriscoll.ca
-export UBUEMAIL=mike@mikeodriscoll.ca
+export DEBEMAIL=modriscoll@clearpath.ai
+export UBUEMAIL=modriscoll@clearpath.ai
 export DEBFULLNAME="Mike O'Driscoll"
 
 # You may need to manually set your language environment
@@ -102,12 +102,9 @@ alias cb="catkin build"
 alias cbi="catkin build -i"
 alias cbt="catkin build --this"
 
-if [[ -a /opt/ros/indigo/setup.zsh ]]; then
-    source /opt/ros/indigo/setup.zsh
-    if [[ -a /etc/bash_completion.d/catkin_tools-completion.bash ]]; then
-        source /etc/bash_completion.d/catkin_tools-completion.bash
-    fi
-fi
+#if [[ -a /etc/bash_completion.d/catkin_tools-completion.bash ]]; then
+    #source /etc/bash_completion.d/catkin_tools-completion.bash
+#fi
 
 if [[ -a ~/.keychain/$(uname -n)-sh ]]; then
     source ~/.keychain/$(uname -n)-sh
@@ -134,6 +131,8 @@ alias top='htop'
 alias pgrep='pgrep -l'
 
 alias sshinit='ssh-add ~/.ssh/home_rsa ~/.ssh/id_rsa'
+
+alias mtr='mtr -t'
 
 #apt-get aliases
 alias install='sudo apt-get install'
