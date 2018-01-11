@@ -107,16 +107,20 @@ alias cbt="catkin build --this"
 #fi
 
 if [[ -a ~/.keychain/$(uname -n)-sh ]]; then
-    source ~/.keychain/$(uname -n)-sh
+  source ~/.keychain/$(uname -n)-sh
 fi
 
 if [[ -a ~/.keychain/$(uname -n)-sh-gpg ]]; then
-    source ~/.keychain/$(uname -n)-sh-gpg
+  source ~/.keychain/$(uname -n)-sh-gpg
+fi
+
+if [[ -a /usr/local/bin/virtualenvwrapper.sh ]]; then
+  source /usr/local/bin/virtualenvwrapper.sh
 fi
 
 GPG_TTY=$(tty)
 export GPG_TTY
-export ROS_EMAIL=modriscoll@clearpathrobotics.com
+export ROS_EMAIL=modriscoll@clearpath.ai
 
 export CCACHE_PREFIX="distcc"
 export CC="ccache gcc" CXX="ccache g++"
