@@ -56,8 +56,8 @@ export apt_upgr=upgrade
 export PATH="/home/$(whoami)/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export DEBEMAIL=modriscoll@clearpath.ai
-export UBUEMAIL=modriscoll@clearpath.ai
+export DEBEMAIL=mikeodriscoll@gmail.com
+export UBUEMAIL=mikeodriscoll@gmail.com
 export DEBFULLNAME="Mike O'Driscoll"
 
 # You may need to manually set your language environment
