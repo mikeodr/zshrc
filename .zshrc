@@ -92,20 +92,6 @@ export JLEVEL=10
 
 unsetopt NOMATCH
 
-#ROS Stuff
-export ROSCONSOLE_FORMAT='[${severity}][${time}][${node}]: ${message}'
-roslint_func() {
-  catkin build --no-deps $1 --make-args roslint_$1
-}
-alias roslint_run=roslint_func
-alias cb="catkin build"
-alias cbi="catkin build -i"
-alias cbt="catkin build --this"
-
-#if [[ -a /etc/bash_completion.d/catkin_tools-completion.bash ]]; then
-    #source /etc/bash_completion.d/catkin_tools-completion.bash
-#fi
-
 if [[ -a ~/.keychain/$(uname -n)-sh ]]; then
   source ~/.keychain/$(uname -n)-sh
 fi
@@ -120,7 +106,6 @@ fi
 
 GPG_TTY=$(tty)
 export GPG_TTY
-export ROS_EMAIL=modriscoll@clearpath.ai
 
 export CCACHE_PREFIX="distcc"
 export CC="ccache gcc" CXX="ccache g++"
