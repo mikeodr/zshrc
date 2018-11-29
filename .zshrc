@@ -54,6 +54,11 @@ source $ZSH/oh-my-zsh.sh
 export apt_pref=apt-get
 export apt_upgr=upgrade
 export PATH="/home/$(whoami)/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
+
+# Golang Optional
+if [[ -a /usr/local/go/bin ]]; then
+    export PATH=$PATH:/usr/local/go/bin
+fi
 # export MANPATH="/usr/local/man:$MANPATH"
 
 export DEBEMAIL=mikeodriscoll@gmail.com
@@ -88,7 +93,7 @@ alias zshsource="source ~/.zshrc"
 export WORKON_HOME=~/venvs
 
 export EDITOR=vim
-export JLEVEL=10
+export MAKEFLAGS="-j$(($(nproc) * 2)) -l$(nproc)"
 
 unsetopt NOMATCH
 
