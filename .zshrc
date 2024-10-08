@@ -27,6 +27,7 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
+export ZSH_DISABLE_COMPFIX=true
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -53,7 +54,6 @@ source $ZSH/oh-my-zsh.sh
 
 export apt_pref=apt-get
 export apt_upgr=upgrade
-export PATH="/home/$(whoami)/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
 
 # Golang Optional
 if [[ -a /usr/local/go/bin ]]; then
@@ -137,3 +137,9 @@ alias clipboard='xclip -sel clip'
 #Fun stuff
 alias sl='sl -e' #Choo choo
 alias fuck='$(thefuck $(fc -ln -1))'
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+SSH_AUTH_SOCK=~/.1password/agent.sock
+
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
