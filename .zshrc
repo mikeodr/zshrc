@@ -93,7 +93,6 @@ alias zshsource="source ~/.zshrc"
 export WORKON_HOME=~/venvs
 
 export EDITOR=vim
-export MAKEFLAGS="-j$(($(nproc) * 2)) -l$(nproc)"
 
 unsetopt NOMATCH
 
